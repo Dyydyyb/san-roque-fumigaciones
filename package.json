@@ -1,0 +1,20 @@
+{
+  "name": "san-roque-fumigaciones",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web oficial de San Roque Fumigaciones - Partido de La Costa. 22 años de trayectoria en control integral de plagas.",
+  "scripts": {
+    "dev": "serve .",
+    "start": "serve ."
+  },
+  "keywords": [
+    "fumigaciones",
+    "control-de-plagas",
+    "la-costa",
+    "san-roque",
+    "argentina",
+    "sanitizacion"
+  ],
+  "author": "Dylan Banegas <dyydyyb>",
+  "license": "MIT"
+}

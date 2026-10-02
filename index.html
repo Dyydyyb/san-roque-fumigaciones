@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Roque Fumigaciones | Control Integral de Plagas • Partido de La Costa</title>
+  <meta name="description" content="San Roque Fumigaciones (SRQ): 22 años de servicio en control integral de plagas en el Partido de La Costa. Fumigación anual certificada para comercios y hogares, sanitización y urgencias. (02257) 580350.">
+  <meta name="keywords" content="san roque fumigaciones, fumigaciones la costa, control de plagas partido de la costa, certificado de fumigacion municipal, fumigacion comercios santa teresita san bernardo mar de ajo">
+  <meta name="author" content="San Roque Fumigaciones - La Costa">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="San Roque Fumigaciones - La Costa | 22 Años de Servicio">
+  <meta property="og:description" content="Tu tranquilidad, nuestro compromiso. Control integral de plagas y fumigaciones certificadas en todo el Partido de La Costa.">
+  <meta property="og:image" content="assets/logo_srq.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo_srq.png">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Hoja de Estilos -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. PRE-LOADER ANIMADO CON AVISPAS VOLANDO EN BUCLE
+       Animación en bucle con trayectorias orgánicas de avispas estilizadas SVG.
+       Al alcanzar 100%, se activa la pulverización desinfectante y las avispas se
+       dispersan suavemente con fade-out elegante hacia el Hero.
+       ========================================================================== -->
+  <aside id="preloader" class="preloader-overlay" aria-label="Pantalla de carga de San Roque Fumigaciones">
+    <!-- Cielo / Fondo limpio con destellos verdes -->
+    <div class="preloader-bg-particles">
+      <div class="bio-glow-circle circle-1"></div>
+      <div class="bio-glow-circle circle-2"></div>
+    </div>
+
+    <!-- Escenario de vuelo de avispas (SVG interactivo) -->
+    <div id="wasps-stage" class="wasps-stage" aria-hidden="true">
+      <!-- Avispas generadas dinámicamente con SVG de alta fidelidad -->
+    </div>
+
+    <!-- Nube de sanitización que espanta a las avispas al completar -->
+    <div id="sanitizer-mist" class="sanitizer-mist"></div>
+
+    <!-- Panel Central del Pre-loader -->
+    <div class="preloader-content">
+      <div class="preloader-logo-wrapper">
+        <img src="assets/logo_srq.png" alt="San Roque Fumigaciones Logo" class="preloader-logo">
+        <div class="preloader-logo-pulse"></div>
+      </div>
+
+      <div class="preloader-brand-title">
+        <span class="srq-tag">SRQ • CONTROL INTEGRAL DE PLAGAS</span>
+        <h2 class="srq-heading">San Roque Fumigaciones</h2>
+        <p class="srq-subheading">22 años protegiendo hogares y comercios en el Partido de La Costa</p>
+      </div>
+
+      <!-- Barra de Progreso Dinámica -->
+      <div class="preloader-progress-box">
+        <div class="progress-bar-track">
+          <div id="progress-bar-fill" class="progress-bar-fill"></div>
+        </div>
+        <div class="progress-status-row">
+          <span id="progress-status-text" class="progress-status-text">Detectando plagas perimetrales...</span>
+          <span id="progress-percent" class="progress-percent">0%</span>
+        </div>
+      </div>
+
+      <!-- Botón accesible de omitir -->
+      <button id="btn-skip-preloader" class="btn-skip-preloader" type="button">
+        Entrar directamente ➔
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       BARRA DE CONTACTO RÁPIDO SUPERIOR
+       ========================================================================== -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-badge-pulse">🌿 SERVICIO OFICIAL</span>
+        <span class="top-bar-location">Partido de La Costa • Guardias y Consultas Rápidas</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:02257580350" class="top-link-phone">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          (02257) 580350
+        </a>
+        <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque%20Fumigaciones,%20necesito%20asesoramiento%20y%20presupuesto" target="_blank" rel="noopener" class="top-link-wa">
+          <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.971.531 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.376 8.204c-.14.394-.816.744-1.127.79-.31.045-.712.062-2.158-.538-1.745-.724-2.868-2.496-2.955-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.272.607-1.446.16-.174.349-.218.465-.218.116 0 .233.001.334.006.107.005.25.04.388.373.146.349.495 1.208.538 1.296.044.087.073.189.015.305-.058.116-.087.189-.174.291-.087.102-.184.228-.263.306-.088.087-.179.182-.077.357.102.175.452.747.969 1.208.665.594 1.226.778 1.401.865.174.087.277.073.379-.044.102-.116.437-.509.553-.684.116-.175.233-.146.393-.087.16.058 1.018.48 1.193.567.175.087.291.131.335.204.043.073.043.422-.097.816z"/></svg>
+          Atención por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HEADER PRINCIPAL (VERDE SRQ & BLANCO LIMPIO)
+       ========================================================================== -->
+  <header class="site-header" id="main-header">
+    <div class="container header-inner">
+      <!-- Marca & Logo -->
+      <a href="#inicio" class="brand-link" aria-label="San Roque Fumigaciones - Volver al inicio">
+        <img src="assets/logo_srq.png" alt="Logo San Roque Fumigaciones SRQ" class="brand-logo">
+        <div class="brand-text">
+          <span class="brand-name">San Roque</span>
+          <span class="brand-sub">Fumigaciones • La Costa</span>
+        </div>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+          <li><a href="#servicios" class="nav-link">Servicios</a></li>
+          <li><a href="#promo-anual" class="nav-link">Plan Anual</a></li>
+          <li><a href="#hogares" class="nav-link">Hogares</a></li>
+          <li><a href="#comercios" class="nav-link">Comercios</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón CTA WhatsApp en Header & Menú Mobile -->
+      <div class="header-actions">
+        <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque%20Fumigaciones,%20quiero%20pedir%20un%20presupuesto" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn-cta-header"
+           id="btn-header-wa">
+          <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.971.531 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.376 8.204c-.14.394-.816.744-1.127.79-.31.045-.712.062-2.158-.538-1.745-.724-2.868-2.496-2.955-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.272.607-1.446.16-.174.349-.218.465-.218.116 0 .233.001.334.006.107.005.25.04.388.373.146.349.495 1.208.538 1.296.044.087.073.189.015.305-.058.116-.087.189-.174.291-.087.102-.184.228-.263.306-.088.087-.179.182-.077.357.102.175.452.747.969 1.208.665.594 1.226.778 1.401.865.174.087.277.073.379-.044.102-.116.437-.509.553-.684.116-.175.233-.146.393-.087.16.058 1.018.48 1.193.567.175.087.291.131.335.204.043.073.043.422-.097.816z"/></svg>
+          <span class="btn-cta-text">Pedir Presupuesto</span>
+        </a>
+
+        <button class="mobile-toggle-btn" id="mobile-toggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         ANIMACIÓN EN EL HEADER: CUCARACHA DETECTADA Y FUMIGADA POR SAN ROQUE
+         ======================================================================= -->
+    <div class="header-cucaracha-track" id="cucaracha-track" title="¡Haz clic sobre la cucaracha para fumigarla!">
+      <div class="container cucaracha-track-inner">
+        <div class="cuca-track-label">
+          <span class="cuca-radar-dot"></span>
+          <span class="cuca-radar-text">Control Perimetral SRQ</span>
+        </div>
+
+        <!-- Escenario de la Cucaracha -->
+        <div class="cucaracha-stage" id="cucaracha-stage">
+          <div class="cucaracha-actor" id="cucaracha-actor" role="button" tabindex="0" aria-label="Cucaracha detectada. Haz clic para fumigar">
+            <!-- Cucaracha Vectorial SVG -->
+            <div class="cucaracha-sprite" id="cucaracha-sprite">
+              <svg class="cucaracha-svg" viewBox="0 0 100 50">
+                <!-- Antenas -->
+                <path class="antena antena-left" d="M 78 20 Q 92 12 98 6" stroke="#271202" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                <path class="antena antena-right" d="M 78 30 Q 92 38 98 44" stroke="#271202" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                
+                <!-- 6 Patas móviles -->
+                <g class="legs-group-left">
+                  <path class="cuca-leg leg-fl" d="M 68 18 Q 72 8 78 4" stroke="#3D1A04" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path class="cuca-leg leg-ml" d="M 50 17 Q 48 6 52 2" stroke="#3D1A04" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path class="cuca-leg leg-bl" d="M 32 18 Q 24 8 16 4" stroke="#3D1A04" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </g>
+                <g class="legs-group-right">
+                  <path class="cuca-leg leg-fr" d="M 68 32 Q 72 42 78 46" stroke="#3D1A04" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path class="cuca-leg leg-mr" d="M 50 33 Q 48 44 52 48" stroke="#3D1A04" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <path class="cuca-leg leg-br" d="M 32 32 Q 24 42 16 46" stroke="#3D1A04" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </g>
+
+                <!-- Abdomen con quitina -->
+                <ellipse cx="36" cy="25" rx="22" ry="12" fill="#582405"/>
+                <path d="M 24 16 C 30 14, 42 14, 48 16 C 45 25, 45 25, 48 34 C 42 36, 30 36, 24 34 Z" fill="#713008"/>
+                <line x1="26" y1="16" x2="26" y2="34" stroke="#3D1A04" stroke-width="1.2" opacity="0.7"/>
+                <line x1="33" y1="14" x2="33" y2="36" stroke="#3D1A04" stroke-width="1.2" opacity="0.7"/>
+                <line x1="41" y1="15" x2="41" y2="35" stroke="#3D1A04" stroke-width="1.2" opacity="0.7"/>
+                <!-- Cerci -->
+                <line x1="14" y1="23" x2="8" y2="20" stroke="#3D1A04" stroke-width="1.5"/>
+                <line x1="14" y1="27" x2="8" y2="30" stroke="#3D1A04" stroke-width="1.5"/>
+
+                <!-- Pronoto torácico con reflejo -->
+                <ellipse cx="62" cy="25" rx="12" ry="11" fill="#84390B"/>
+                <ellipse cx="61" cy="22" rx="8" ry="6" fill="#A14E17" opacity="0.8"/>
+                
+                <!-- Cabeza -->
+                <ellipse cx="74" cy="25" rx="6" ry="5.5" fill="#3D1A04"/>
+                
+                <!-- Ojos Vivos -->
+                <g class="cuca-alive-eyes">
+                  <circle cx="75" cy="22" r="1.3" fill="#000000"/>
+                  <circle cx="75" cy="28" r="1.3" fill="#000000"/>
+                </g>
+                <!-- Ojos Muertos (X X rojos) -->
+                <g class="cuca-dead-eyes">
+                  <path d="M 73 20 L 77 24 M 77 20 L 73 24" stroke="#DC2626" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M 73 26 L 77 30 M 77 26 L 73 30" stroke="#DC2626" stroke-width="1.4" stroke-linecap="round"/>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Canister / Spray Fumigador SRQ -->
+            <div class="cuca-spray-nozzle" id="cuca-spray-nozzle">
+              <div class="spray-canister-graphic">
+                <span class="spray-canister-badge">SRQ</span>
+              </div>
+              <div class="spray-blast-cloud">
+                <div class="spray-mist-particle p1"></div>
+                <div class="spray-mist-particle p2"></div>
+                <div class="spray-mist-particle p3"></div>
+                <span class="spray-sound-text">¡PSSSSHT! 💨</span>
+              </div>
+            </div>
+
+            <!-- Sello de Eliminada / Certificado de Fumigación -->
+            <div class="cuca-stamp-badge" id="cuca-stamp-badge">
+              <span class="stamp-icon">🛡️</span>
+              <span class="stamp-text">¡FUMIGADA!</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-cuca-instant" id="btn-cuca-instant" title="Fumigar plaga ahora">
+          ⚡ Fumigar
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul class="mobile-nav-list">
+        <li><a href="#inicio" class="mobile-nav-link">Inicio</a></li>
+        <li><a href="#experiencia" class="mobile-nav-link">22 Años de Experiencia</a></li>
+        <li><a href="#servicios" class="mobile-nav-link">Nuestros Servicios</a></li>
+        <li><a href="#promo-anual" class="mobile-nav-link">Plan Anual Comercios</a></li>
+        <li><a href="#hogares" class="mobile-nav-link">Hogares Tranquilos</a></li>
+        <li><a href="#comercios" class="mobile-nav-link">Comercios en Regla</a></li>
+        <li><a href="#contacto" class="mobile-nav-link">Contacto Directo</a></li>
+      </ul>
+      <div class="mobile-drawer-contact">
+        <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque%20Fumigaciones" target="_blank" rel="noopener" class="btn-mobile-wa">
+          Consultar por WhatsApp • (02257) 580350
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION: 22 AÑOS DE SERVICIO EN EL PARTIDO DE LA COSTA
+       ========================================================================== -->
+  <section class="hero-section" id="inicio">
+    <div class="container hero-container">
+      <div class="hero-grid">
+        <!-- Texto y Propuesta de Valor -->
+        <div class="hero-text-col">
+          <div class="hero-badge-pill">
+            <span class="badge-icon">⭐</span>
+            <span class="badge-highlight">22 años de servicio</span>
+            <span class="badge-divider">•</span>
+            <span>Partido de La Costa</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hogares y Negocios <span class="text-accent">Libres de Plagas</span>
+          </h1>
+
+          <p class="hero-slogan">
+            <strong>Tu tranquilidad, nuestro compromiso.</strong> Brindamos control integral de plagas, fumigaciones certificadas para habilitaciones comerciales y sanitización profesional en toda la Costa Atlántica.
+          </p>
+
+          <!-- Puntos Clave de Confianza -->
+          <div class="hero-highlights-row">
+            <div class="hero-highlight-item">
+              <div class="highlight-check">✓</div>
+              <div class="highlight-text">
+                <strong>Prevención Activa</strong>
+                <span>La limpieza también previene</span>
+              </div>
+            </div>
+            <div class="hero-highlight-item">
+              <div class="highlight-check">✓</div>
+              <div class="highlight-text">
+                <strong>Ambientes Saludables</strong>
+                <span>Seguro para niños y mascotas</span>
+              </div>
+            </div>
+            <div class="hero-highlight-item">
+              <div class="highlight-check">✓</div>
+              <div class="highlight-text">
+                <strong>Certificado Oficial</strong>
+                <span>100% Válido para la Municipalidad</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de Acción (CTA) -->
+          <div class="hero-cta-group">
+            <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque%20Fumigaciones,%20quiero%20un%20presupuesto%20para%20mi%20hogar/comercio" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-primary-green">
+              <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.971.531 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.376 8.204c-.14.394-.816.744-1.127.79-.31.045-.712.062-2.158-.538-1.745-.724-2.868-2.496-2.955-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.272.607-1.446.16-.174.349-.218.465-.218.116 0 .233.001.334.006.107.005.25.04.388.373.146.349.495 1.208.538 1.296.044.087.073.189.015.305-.058.116-.087.189-.174.291-.087.102-.184.228-.263.306-.088.087-.179.182-.077.357.102.175.452.747.969 1.208.665.594 1.226.778 1.401.865.174.087.277.073.379-.044.102-.116.437-.509.553-.684.116-.175.233-.146.393-.087.16.058 1.018.48 1.193.567.175.087.291.131.335.204.043.073.043.422-.097.816z"/></svg>
+              <span>Consultar por WhatsApp</span>
+            </a>
+            <a href="tel:02257580350" class="btn-secondary-phone">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <span>Llamar al (02257) 580350</span>
+            </a>
+          </div>
+
+          <!-- Micro animación replay de avispas -->
+          <div class="hero-replay-row">
+            <button id="btn-replay-wasps" class="btn-replay-wasps" type="button" title="Ver animación de avispas en preloader">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+              <span>Repetir animación de avispas</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Imagen Destacada & Card Visual -->
+        <div class="hero-image-col">
+          <div class="hero-card-frame">
+            <img src="assets/hogares_tranquilos.jpg" alt="Hogares más tranquilos y seguros libres de plagas - San Roque Fumigaciones" class="hero-featured-img">
+            
+            <!-- Floating Badge Card 1 -->
+            <div class="floating-stat-card card-experience">
+              <div class="stat-icon-circle">🎖️</div>
+              <div class="stat-info">
+                <span class="stat-num">22 AÑOS</span>
+                <span class="stat-txt">De trayectoria comprobada</span>
+              </div>
+            </div>
+
+            <!-- Floating Badge Card 2 -->
+            <div class="floating-stat-card card-muni">
+              <div class="stat-icon-circle">📋</div>
+              <div class="stat-info">
+                <span class="stat-num">CERTIFICADO 24HS</span>
+                <span class="stat-txt">Válido Municipalidad</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BARRA DE VALOR: 22 AÑOS DE EXPERIENCIA & CONFIANZA
+       ========================================================================== -->
+  <section class="trust-strip-section" id="experiencia">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">🏠</div>
+          <div class="trust-body">
+            <h4>Hogares Protegidos</h4>
+            <p>Tratamientos seguros e inocuos para tu familia y mascotas.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🏬</div>
+          <div class="trust-body">
+            <h4>Comercios en Regla</h4>
+            <p>Certificados oficiales válidos para bromatología e inspecciones.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🐝</div>
+          <div class="trust-body">
+            <h4>Avispas & Panales</h4>
+            <p>Erradicación y retiro técnico perimetral de avisperos de riesgo.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">⚡</div>
+          <div class="trust-body">
+            <h4>Respuesta en el Día</h4>
+            <p>Atención inmediata en todo el Partido de La Costa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SERVICIOS ESPECIALIZADOS
+       Fumigación Anual Certificada, Control Preventivo, Cucarachas, Sanitización
+       ========================================================================== -->
+  <section class="services-section section" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">NUESTRAS ESPECIALIDADES</span>
+        <h2 class="section-title">Servicios Integrales de Desinfección</h2>
+        <p class="section-subtitle">
+          Soluciones profesionales con productos autorizados por ANMAT y el Ministerio de Salud, garantizando máxima efectividad sin dañar a las personas ni a los animales domésticos.
+        </p>
+      </div>
+
+      <!-- Cuadrícula de Servicios (2 columnas optimizada en móvil) -->
+      <div class="services-grid">
+        <!-- Servicio 1: Fumigación Anual Certificada -->
+        <article class="service-card featured-service">
+          <div class="service-badge-top">⭐ MÁS SOLICITADO</div>
+          <div class="service-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          </div>
+          <h3 class="service-card-title">Fumigación Anual Certificada</h3>
+          <p class="service-card-desc">
+            Plan anual para comercios, empresas e instituciones. Emisión de certificado oficial en 24hs con libro rubricado y oblea visible para inspecciones de bromatología.
+          </p>
+          <ul class="service-specs-list">
+            <li>Cobertura legal durante los 12 meses</li>
+            <li>Evita multas y clausuras municipales</li>
+            <li>Resolución inmediata en el día</li>
+          </ul>
+          <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque,%20quiero%20contratar%20el%20Plan%20de%20Fumigaci%C3%B3n%20Anual%20Certificada" target="_blank" rel="noopener" class="btn-card-action">
+            Contratar Plan Anual ➔
+          </a>
+        </article>
+
+        <!-- Servicio 2: Control y Retiro de Avispas y Panales -->
+        <article class="service-card">
+          <div class="service-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+          </div>
+          <h3 class="service-card-title">Avispas, Avisperos & Panales</h3>
+          <p class="service-card-desc">
+            Desalojo seguro y exterminio técnico de nidos de avispas en techos, persianas, aleros y troncos. Eliminamos el peligro de picaduras para tu familia y clientes.
+          </p>
+          <ul class="service-specs-list">
+            <li>Eliminación de nidos activos</li>
+            <li>Tratamiento de barrera residual</li>
+            <li>Operativos en altura seguros</li>
+          </ul>
+          <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque,%20tengo%20un%20problema%20con%20avispas/panal%20en%20La%20Costa" target="_blank" rel="noopener" class="btn-card-action">
+            Eliminar Avispas ➔
+          </a>
+        </article>
+
+        <!-- Servicio 3: Control de Cucarachas y Rastreros -->
+        <article class="service-card">
+          <div class="service-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v1.08A4.98 4.98 0 0 0 3 13c0 2.47 1.8 4.51 4.17 4.92L7 18.5a1.5 1.5 0 0 0 3 0V18h4v.5a1.5 1.5 0 0 0 3 0l-.17-.58C19.2 17.51 21 15.47 21 13a4.98 4.98 0 0 0-4-4.92V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v1h-6V7z"/></svg>
+          </div>
+          <h3 class="service-card-title">Cucarachas & Plagas Rastreras</h3>
+          <p class="service-card-desc">
+            Tratamiento focalizado contra cucaracha alemana (de cocina) y americana. Uso de geles cebos atrayentes de acción en cadena que eliminan el nido completo sin olor.
+          </p>
+          <ul class="service-specs-list">
+            <li>Efecto cascada en el nido</li>
+            <li>Sin necesidad de desalojar la cocina</li>
+            <li>Inocuo para alimentos bajo norma</li>
+          </ul>
+          <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque,%20necesito%20fumigar%20por%20cucarachas" target="_blank" rel="noopener" class="btn-card-action">
+            Desinfectar Cucarachas ➔
+          </a>
+        </article>
+
+        <!-- Servicio 4: Control Preventivo & Sanitización -->
+        <article class="service-card">
+          <div class="service-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 4.5l4 3.6V18h-2v-4H10v4H8v-6.9l4-3.6z"/></svg>
+          </div>
+          <h3 class="service-card-title">Sanitización & Prevención</h3>
+          <p class="service-card-desc">
+            <em>"La limpieza también previene."</em> Desinfección de ambientes contra ácaros, pulgas, garrapatas, hongos y virus en viviendas de alquiler, cabañas y comercios.
+          </p>
+          <ul class="service-specs-list">
+            <li>Ambientes 100% esterilizados</li>
+            <li>Ideal para apertura de temporada</li>
+            <li>Higiene profunda certificada</li>
+          </ul>
+          <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque,%20quiero%20hacer%20sanitizaci%C3%B3n%20y%20control%20preventivo" target="_blank" rel="noopener" class="btn-card-action">
+            Pedir Sanitización ➔
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROMO DESTACADA: FUMIGACIÓN ANUAL DESDE $75.000 ($6.250 / MES)
+       ========================================================================== -->
+  <section class="promo-anual-section" id="promo-anual">
+    <div class="container">
+      <div class="promo-card-wrapper">
+        <div class="promo-text-col">
+          <div class="promo-tag-pill">
+            <span class="tag-sparkle">🏷️</span> PRECIO EN PROMOCIÓN EXCLUSIVA
+          </div>
+
+          <h2 class="promo-main-title">
+            Fumigación Anual <span class="promo-highlight">Certificada</span>
+          </h2>
+
+          <p class="promo-destinatarios">
+            Para Comercios, Empresas, Gastronomía e Instituciones de todo el Partido de La Costa.
+          </p>
+
+          <!-- Precios Oficiales -->
+          <div class="promo-price-box">
+            <div class="price-header">
+              <span class="price-from">DESDE</span>
+              <span class="price-amount">$75.000.-*</span>
+            </div>
+            <div class="price-monthly-banner">
+              <span class="calendar-icon">📅</span>
+              <div class="monthly-text">
+                <span class="monthly-equiv">EQUIVALE A SOLO</span>
+                <span class="monthly-price">$6.250.-</span>
+                <span class="monthly-sub">POR MES (12 MESES DE COBERTURA)</span>
+              </div>
+            </div>
+            <p class="price-legal-note">*Valor mínimo de referencia. El precio varía según m², tipo de plaga y características edilicias.</p>
+          </div>
+
+          <!-- Beneficios del Plan Anual -->
+          <div class="promo-perks-grid">
+            <div class="promo-perk-item">
+              <span class="perk-icon">✓</span>
+              <span><strong>Cumplí con la normativa</strong> vigente</span>
+            </div>
+            <div class="promo-perk-item">
+              <span class="perk-icon">🏪</span>
+              <span><strong>Evitá multas</strong> y clausuras</span>
+            </div>
+            <div class="promo-perk-item">
+              <span class="perk-icon">⚡</span>
+              <span><strong>Resolvé en el día</strong> con certificado</span>
+            </div>
+            <div class="promo-perk-item">
+              <span class="perk-icon">📋</span>
+              <span><strong>Válido para la Municipalidad</strong></span>
+            </div>
+          </div>
+
+          <div class="promo-cta-row">
+            <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque,%20quiero%20solicitar%20la%20Fumigaci%C3%B3n%20Anual%20Certificada%20en%20promoci%C3%B3n" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-promo-wa">
+              <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.971.531 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.376 8.204c-.14.394-.816.744-1.127.79-.31.045-.712.062-2.158-.538-1.745-.724-2.868-2.496-2.955-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.272.607-1.446.16-.174.349-.218.465-.218.116 0 .233.001.334.006.107.005.25.04.388.373.146.349.495 1.208.538 1.296.044.087.073.189.015.305-.058.116-.087.189-.174.291-.087.102-.184.228-.263.306-.088.087-.179.182-.077.357.102.175.452.747.969 1.208.665.594 1.226.778 1.401.865.174.087.277.073.379-.044.102-.116.437-.509.553-.684.116-.175.233-.146.393-.087.16.058 1.018.48 1.193.567.175.087.291.131.335.204.043.073.043.422-.097.816z"/></svg>
+              <span>Consultar por WhatsApp: (02257) 580350</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Imagen Real Oficial del Certificado -->
+        <div class="promo-image-col">
+          <div class="promo-image-card">
+            <img src="assets/promo_fumigacion_anual.png" alt="Certificado de fumigación oficial San Roque Fumigaciones La Costa" class="promo-real-img">
+            <div class="promo-badge-float">
+              <span>📋 100% HOMOLOGADO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOGARES MÁS TRANQUILOS: LIBRES DE PLAGAS
+       ========================================================================== -->
+  <section class="section hogares-section" id="hogares">
+    <div class="container">
+      <div class="dual-feature-grid">
+        <div class="dual-feature-image">
+          <img src="assets/hogares_tranquilos.jpg" alt="Perro descansando tranquilo libre de plagas en hogar de La Costa" class="dual-img">
+          <div class="quote-floating-box">
+            <p>"Buenas cosas pasan en lugares limpios."</p>
+          </div>
+        </div>
+
+        <div class="dual-feature-content">
+          <span class="section-tag">PROTECCIÓN RESIDENCIAL</span>
+          <h2 class="section-title">Hogares Más Tranquilos. <span class="text-accent">Libres de Plagas.</span></h2>
+          <p class="section-subtitle">
+            Sabemos que tu casa es tu refugio de descanso en la costa. Por eso diseñamos tratamientos ecológicos y de bajo impacto que garantizan que niños y mascotas convivan en un ambiente higiénico y saludable.
+          </p>
+
+          <div class="feature-bullets-list">
+            <div class="feature-bullet-item">
+              <div class="bullet-icon">🛡️</div>
+              <div class="bullet-body">
+                <h4>Prevención Integral</h4>
+                <p>Barreras perimetrales que impiden el ingreso de alacranes, avispas, arañas de playa y roedores antes de que colonicen.</p>
+              </div>
+            </div>
+            <div class="feature-bullet-item">
+              <div class="bullet-icon">🏡</div>
+              <div class="bullet-body">
+                <h4>Ambientes Más Saludables</h4>
+                <p>Sin olores invasivos, sin manchas en paredes y con tiempos de reingreso mínimos y seguros.</p>
+              </div>
+            </div>
+            <div class="feature-bullet-item">
+              <div class="bullet-icon">🌿</div>
+              <div class="bullet-body">
+                <h4>Soluciones Profesionales</h4>
+                <p>Diagnóstico puntual con más de 2 décadas de conocimiento de la fauna y plagas locales de la costa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-cta-box">
+            <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque,%20quiero%20fumigar%20mi%20casa/departamento%20en%20La%20Costa" target="_blank" rel="noopener" class="btn-primary-green">
+              Pedir Presupuesto para Hogar ➔
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       COMERCIOS EN REGLA: TU NEGOCIO SIEMPRE PROTEGIDO
+       ========================================================================== -->
+  <section class="section comercios-section" id="comercios">
+    <div class="container">
+      <div class="dual-feature-grid reverse-grid">
+        <div class="dual-feature-content">
+          <span class="section-tag">HABILITACIONES & EMPRESAS</span>
+          <h2 class="section-title">Tu Negocio <span class="text-accent">Siempre en Regla</span></h2>
+          <p class="section-subtitle">
+            Cumplir con las exigencias sanitarias no tiene por qué ser un dolor de cabeza ni un costo excesivo. En San Roque Fumigaciones nos ocupamos de que tu local gastronómico, hotel, supermercado o comercio cumpla con toda la normativa legal.
+          </p>
+
+          <div class="feature-bullets-list">
+            <div class="feature-bullet-item">
+              <div class="bullet-icon">📄</div>
+              <div class="bullet-body">
+                <h4>Certificado en 24 Horas</h4>
+                <p>Te entregamos la documentación rubricada y el certificado oficial para presentar ante inspectores municipales en el acto.</p>
+              </div>
+            </div>
+            <div class="feature-bullet-item">
+              <div class="bullet-icon">📆</div>
+              <div class="bullet-body">
+                <h4>Cobertura Anual Continua</h4>
+                <p>Visitas programadas de refuerzo y asesoramiento técnico permanente para auditorías sanitarias.</p>
+              </div>
+            </div>
+            <div class="feature-bullet-item">
+              <div class="bullet-icon">✅</div>
+              <div class="bullet-body">
+                <h4>Tu Comercio en Regla</h4>
+                <p>Oblea identificatoria en vidriera que transmite máxima confianza y seguridad a tus clientes y turistas.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-cta-box">
+            <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque,%20quiero%20poner%20mi%20comercio%20en%20regla%20con%20el%20certificado" target="_blank" rel="noopener" class="btn-primary-green">
+              Poner mi Comercio en Regla ➔
+            </a>
+          </div>
+        </div>
+
+        <div class="dual-feature-image">
+          <img src="assets/fumigacion_comercios.png" alt="Comercio en regla con fumigación certificada San Roque La Costa" class="dual-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LOCALIDADES DEL PARTIDO DE LA COSTA
+       ========================================================================== -->
+  <section class="locations-section">
+    <div class="container">
+      <div class="locations-header">
+        <span class="section-tag">COBERTURA REGIONAL</span>
+        <h3 class="locations-title">Atención en Todo el Partido de La Costa</h3>
+        <p class="locations-sub">Llegamos de punta a punta con unidades móviles equipadas:</p>
+      </div>
+      <div class="locations-chips-row">
+        <span class="chip-loc">📍 San Clemente del Tuyú</span>
+        <span class="chip-loc">📍 Las Toninas</span>
+        <span class="chip-loc">📍 Santa Teresita</span>
+        <span class="chip-loc">📍 Mar del Tuyú</span>
+        <span class="chip-loc">📍 Costa del Este</span>
+        <span class="chip-loc">📍 Aguas Verdes</span>
+        <span class="chip-loc">📍 La Lucila del Mar</span>
+        <span class="chip-loc">📍 San Bernardo</span>
+        <span class="chip-loc">📍 Mar de Ajó</span>
+        <span class="chip-loc">📍 Nueva Atlantis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PREGUNTAS FRECUENTES (FAQ)
+       ========================================================================== -->
+  <section class="section faq-section" id="faq">
+    <div class="container faq-container">
+      <div class="section-header">
+        <span class="section-tag">DUDAS COMUNES</span>
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <p class="section-subtitle">Respuestas claras sobre nuestros métodos, tiempos de secado y certificados oficiales.</p>
+      </div>
+
+      <div class="faq-accordion">
+        <details class="faq-item" open>
+          <summary class="faq-question">
+            <span>¿Los productos que utilizan son peligrosos para perros, gatos o niños?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>No. En San Roque Fumigaciones utilizamos insecticidas piretroides de última generación y geles atrayentes registrados en ANMAT de bajísima toxicidad para mamíferos. Una vez transcurrido el tiempo prudencial de secado y ventilación (habitualmente 1 a 2 horas), el espacio es totalmente seguro para niños y mascotas.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Cuánto tiempo tardan en entregar el certificado para habilitación municipal?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>El certificado de fumigación y desinfección oficial se emite y entrega en menos de 24 horas hábiles (e incluso en el acto de forma digital), con la oblea reglamentaria y el número de habilitación correspondiente para presentar ante inspectores de Bromatología del Partido de La Costa.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Cómo resuelven los problemas con avispas y panales en altura?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>Contamos con equipos de pulverización direccional de largo alcance e indumentaria de protección apícola/técnica. Aplicamos un producto de volteo inmediato que neutraliza la colonia en minutos y procedemos a la extracción física del panal, sellando la zona con repelente residual para que no vuelvan a anidar.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>¿Qué abarca la promoción del Plan Anual de $75.000?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>El plan cubre comercios e instituciones con certificado de vigencia municipal anual (equivalente a solo $6.250 por mes), incluyendo libro rubricado de control de plagas, oblea visible, y soporte prioritario ante cualquier emergencia o inspección.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FORMULARIO DE CONTACTO RÁPIDO A WHATSAPP
+       ========================================================================== -->
+  <section class="section contact-section" id="contacto">
+    <div class="container">
+      <div class="contact-card-box">
+        <div class="contact-info-col">
+          <span class="section-tag">CONTACTO DIRECTO</span>
+          <h2 class="contact-title">Solicitá tu Presupuesto Sin Cargo</h2>
+          <p class="contact-lead">
+            Contactanos por WhatsApp o teléfono al <strong>(02257) 580350</strong> y recibí respuesta inmediata de un técnico especialista.
+          </p>
+
+          <div class="contact-channels-list">
+            <a href="https://wa.me/5492257580350" target="_blank" rel="noopener" class="contact-channel-item">
+              <div class="channel-icon-circle green-wa">
+                <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.971.531 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.376 8.204c-.14.394-.816.744-1.127.79-.31.045-.712.062-2.158-.538-1.745-.724-2.868-2.496-2.955-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.272.607-1.446.16-.174.349-.218.465-.218.116 0 .233.001.334.006.107.005.25.04.388.373.146.349.495 1.208.538 1.296.044.087.073.189.015.305-.058.116-.087.189-.174.291-.087.102-.184.228-.263.306-.088.087-.179.182-.077.357.102.175.452.747.969 1.208.665.594 1.226.778 1.401.865.174.087.277.073.379-.044.102-.116.437-.509.553-.684.116-.175.233-.146.393-.087.16.058 1.018.48 1.193.567.175.087.291.131.335.204.043.073.043.422-.097.816z"/></svg>
+              </div>
+              <div class="channel-data">
+                <span class="channel-label">WhatsApp Directo</span>
+                <span class="channel-val">(02257) 580350</span>
+              </div>
+            </a>
+
+            <a href="tel:02257580350" class="contact-channel-item">
+              <div class="channel-icon-circle green-phone">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div class="channel-data">
+                <span class="channel-label">Línea Telefónica</span>
+                <span class="channel-val">02257 - 580350</span>
+              </div>
+            </a>
+
+            <div class="contact-channel-item">
+              <div class="channel-icon-circle green-pin">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div class="channel-data">
+                <span class="channel-label">Cobertura</span>
+                <span class="channel-val">Partido de La Costa, Bs. As.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario Cotizador Rápido -->
+        <div class="contact-form-col">
+          <form id="srq-quote-form" class="srq-quote-form">
+            <h3 class="form-title">Cotizador Online Inmediato</h3>
+            <p class="form-subtitle">Completá los datos y te enviamos la cotización directamente por WhatsApp:</p>
+
+            <div class="form-group">
+              <label for="form-nombre">Tu Nombre o Nombre del Comercio *</label>
+              <input type="text" id="form-nombre" class="form-input" placeholder="Ej: Gastón / Panadería del Sol" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="form-tipo">Tipo de Propiedad *</label>
+                <select id="form-tipo" class="form-select" required>
+                  <option value="Comercio / Gastronomía">Comercio / Gastronomía</option>
+                  <option value="Hogar / Casa de Familia">Hogar / Casa de Familia</option>
+                  <option value="Departamento / Cabaña">Departamento / Cabaña</option>
+                  <option value="Empresa / Depósito">Empresa / Depósito</option>
+                  <option value="Institución / Escuela">Institución / Escuela</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="form-localidad">Localidad *</label>
+                <select id="form-localidad" class="form-select" required>
+                  <option value="Santa Teresita">Santa Teresita</option>
+                  <option value="San Bernardo">San Bernardo</option>
+                  <option value="Mar de Ajó">Mar de Ajó</option>
+                  <option value="San Clemente">San Clemente del Tuyú</option>
+                  <option value="Mar del Tuyú">Mar del Tuyú</option>
+                  <option value="Las Toninas">Las Toninas</option>
+                  <option value="Costa del Este">Costa del Este</option>
+                  <option value="La Lucila del Mar">La Lucila del Mar</option>
+                  <option value="Aguas Verdes">Aguas Verdes</option>
+                  <option value="Nueva Atlantis">Nueva Atlantis</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="form-plaga">Plaga Principal o Motivo *</label>
+              <select id="form-plaga" class="form-select" required>
+                <option value="Fumigación Anual Certificada">Fumigación Anual Certificada (Comercio)</option>
+                <option value="Avispas y Panales">Avispas y Panales</option>
+                <option value="Cucarachas">Cucarachas</option>
+                <option value="Sanitización / Desinfección Preventiva">Sanitización / Preventivo</option>
+                <option value="Roedores">Roedores</option>
+                <option value="Otra plaga / Control integral">Otra plaga / Control integral</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="form-mensaje">Detalles Adicionales (Opcional)</label>
+              <textarea id="form-mensaje" class="form-textarea" rows="2" placeholder="Ej: Urgencia para habilitación municipal, metros cuadrados aprox..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-form" id="btn-submit-quote">
+              <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.971.531 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.376 8.204c-.14.394-.816.744-1.127.79-.31.045-.712.062-2.158-.538-1.745-.724-2.868-2.496-2.955-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.272.607-1.446.16-.174.349-.218.465-.218.116 0 .233.001.334.006.107.005.25.04.388.373.146.349.495 1.208.538 1.296.044.087.073.189.015.305-.058.116-.087.189-.174.291-.087.102-.184.228-.263.306-.088.087-.179.182-.077.357.102.175.452.747.969 1.208.665.594 1.226.778 1.401.865.174.087.277.073.379-.044.102-.116.437-.509.553-.684.116-.175.233-.146.393-.087.16.058 1.018.48 1.193.567.175.087.291.131.335.204.043.073.043.422-.097.816z"/></svg>
+              <span>Generar Cotización en WhatsApp</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER PROFESIONAL (VERDE SRQ & BLANCO LIMPIO)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <div class="footer-logo-row">
+            <img src="assets/logo_srq.png" alt="San Roque Fumigaciones SRQ" class="footer-logo">
+            <div>
+              <span class="footer-brand-title">San Roque</span>
+              <span class="footer-brand-sub">Fumigaciones • La Costa</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            22 años de trayectoria protegiendo la salud ambiental en el Partido de La Costa. Control integral de plagas, certificados oficiales y desinfección preventiva.
+          </p>
+          <div class="footer-badge-item">
+            <span>🛡️ Habilitación y Certificación Municipal</span>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Servicios</h4>
+          <ul class="footer-links-list">
+            <li><a href="#promo-anual">Fumigación Anual Certificada</a></li>
+            <li><a href="#servicios">Control de Avispas & Panales</a></li>
+            <li><a href="#servicios">Eliminación de Cucarachas</a></li>
+            <li><a href="#servicios">Sanitización & Prevención</a></li>
+            <li><a href="#comercios">Habilitación de Comercios</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Zonas de Cobertura</h4>
+          <ul class="footer-links-list">
+            <li><span>Santa Teresita & Mar del Tuyú</span></li>
+            <li><span>San Bernardo & Mar de Ajó</span></li>
+            <li><span>San Clemente del Tuyú</span></li>
+            <li><span>Las Toninas & Costa del Este</span></li>
+            <li><span>La Lucila & Aguas Verdes</span></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-col">
+          <h4 class="footer-col-title">Contacto Rápido</h4>
+          <p class="footer-contact-item">
+            <strong>Teléfono:</strong> (02257) 580350
+          </p>
+          <p class="footer-contact-item">
+            <strong>WhatsApp:</strong> +54 9 2257 580350
+          </p>
+          <p class="footer-contact-item">
+            <strong>Atención:</strong> Lunes a Sábados 8:00 a 20:00 (Guardias 24hs)
+          </p>
+          <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque%20Fumigaciones" target="_blank" rel="noopener" class="footer-wa-btn">
+            Escribir por WhatsApp ➔
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-copy">
+          © 2026 San Roque Fumigaciones - La Costa. Todos los derechos reservados. Control Integral de Plagas.
+        </p>
+        <p class="footer-tagline">
+          Tu tranquilidad, nuestro compromiso.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BOTÓN FLOTANTE PERMANENTE DE WHATSAPP
+       ========================================================================== -->
+  <aside class="floating-wa-wrapper" aria-label="Contacto flotante de WhatsApp">
+    <a href="https://wa.me/5492257580350?text=Hola%20San%20Roque%20Fumigaciones,%20necesito%20hacer%20una%20consulta%20urgente" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="floating-wa-btn" 
+       id="floating-wa-btn"
+       aria-label="Abrir chat de WhatsApp con San Roque Fumigaciones al (02257) 580350">
+      <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.971.531 1.77.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm3.376 8.204c-.14.394-.816.744-1.127.79-.31.045-.712.062-2.158-.538-1.745-.724-2.868-2.496-2.955-2.612-.087-.116-.708-.941-.708-1.795 0-.853.447-1.272.607-1.446.16-.174.349-.218.465-.218.116 0 .233.001.334.006.107.005.25.04.388.373.146.349.495 1.208.538 1.296.044.087.073.189.015.305-.058.116-.087.189-.174.291-.087.102-.184.228-.263.306-.088.087-.179.182-.077.357.102.175.452.747.969 1.208.665.594 1.226.778 1.401.865.174.087.277.073.379-.044.102-.116.437-.509.553-.684.116-.175.233-.146.393-.087.16.058 1.018.48 1.193.567.175.087.291.131.335.204.043.073.043.422-.097.816z"/></svg>
+      <span class="floating-wa-pulse"></span>
+    </a>
+    <div class="floating-wa-tooltip">
+      <span>💬 ¿En qué te ayudamos? (02257) 580350</span>
+    </div>
+  </aside>
+
+  <!-- JavaScript Principal -->
+  <script src="js/main.js"></script>
+</body>
+</html>
